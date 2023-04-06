@@ -6,7 +6,7 @@ export const tokens = (mode: PaletteMode) => ({
 	...(mode === "light"
 		? {
 				primary: {
-					100: "#fafafa",
+					100: "#FFFFFF",
 					200: "#f5f5f5",
 					300: "#efefef",
 					400: "#eaeaea",
@@ -138,7 +138,7 @@ export const themeSettings = (mode: PaletteMode) => {
 			...(mode === "light"
 				? {
 						primary: {
-							main: colours.primary[500],
+							main: colours.primary[100],
 						},
 						secondary: {
 							main: colours.green[500],
@@ -154,7 +154,7 @@ export const themeSettings = (mode: PaletteMode) => {
 				  }
 				: {
 						primary: {
-							main: colours.primary[100],
+							main: colours.primary[700],
 						},
 						secondary: {
 							main: colours.green[500],
@@ -201,16 +201,16 @@ export const themeSettings = (mode: PaletteMode) => {
 };
 
 // react context for colour mode
-export const ColourModeContext = createContext<Theme>({
-	toggleColourMode: () => {},
+export const ColourModeContext = createContext({
+	toggleColorMode: () => {},
 });
 
-export const useMode = () => {
+export const useMode = (): [Theme, { toggleColorMode: () => void }] => {
 	const [mode, setMode] = useState<PaletteMode>("light");
 
 	const colourMode = useMemo(
 		() => ({
-			toggleColourMode: () =>
+			toggleColorMode: () =>
 				setMode((prev) => (prev === "dark" ? "light" : "dark")),
 		}),
 		[]

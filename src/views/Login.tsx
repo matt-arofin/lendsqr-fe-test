@@ -1,30 +1,33 @@
 import React, { useState } from "react";
-import * as yup from "yup";
 import "../App.css";
-import logo from "../assets/logo.png";
-import company from "../assets/lendsqr.png";
+// import * as yup from "yup";
+// import logo from "../assets/logo.png";
+// import company from "../assets/lendsqr.png";
 import graphic from "../assets/pablo-graphic-login.png";
 
-const Login: React.FC = () => {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
 
-	const handleUsernameChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
-		setUsername(evt.target.value);
+const Login: React.FC = () => {
+  const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
+
+	const handleEmailChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
+		setEmail(evt.target.value);
 	const handlePasswordChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
 		setPassword(evt.target.value);
 	const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
 		evt.preventDefault();
-		console.log(`username: ${username} password: ${password}`);
+    setIsLogin(false); // allows rest of top bar to render
+		console.log(`email: ${email} password: ${password}`);
 	};
 
 	return (
 		<div className="login">
 			<div className="image-container">
-				<div className="company-logo">
+				{/* <div className="company-logo">
 					<img src={logo} alt="logo" />
 					<img src={company} alt="Lendsqr" />
-				</div>
+				</div> */}
 
 				<div className="graphic">
 					<img src={graphic} alt="login-page-graphic" />
@@ -33,30 +36,32 @@ const Login: React.FC = () => {
 
 			<div className="form-container">
 				<h1>Welcome!</h1>
-				<p>Enter your details to login</p>
+				<h4>Enter your details to login</h4>
 				<form onSubmit={handleSubmit}>
 					<div className="input-container">
-						<label htmlFor="username">Username</label>
 						<input
 							type="text"
-							id="username"
-							name="username"
-							value={username}
-							onChange={handleUsernameChange}
+							id="email"
+							name="email"
+              placeholder="Email Address"
+							value={email}
+							onChange={handleEmailChange}
 						/>
 					</div>
 					<div className="input-container">
-						<label htmlFor="password">Password</label>
 						<input
 							type="password"
 							id="password"
 							name="password"
+              placeholder="Password"
 							value={password}
 							onChange={handlePasswordChange}
 						/>
 					</div>
 
-          <a href="#">Forgot Password?</a>
+					<div className="login-page-links">
+						<a href="/">Forgot Password?</a>
+					</div>
 
 					<button type="submit">Log In</button>
 				</form>
