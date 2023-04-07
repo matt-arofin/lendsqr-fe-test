@@ -36,6 +36,7 @@ const Login: React.FC = () => {
 					<div className="input-container">
 						<input
 							type="text"
+							data-testid="email-field"
 							id="email"
 							name="email"
               placeholder="Email Address"
@@ -46,6 +47,7 @@ const Login: React.FC = () => {
 					<div className="input-container">
 						<input
 							type="password"
+							data-testid="password-field"
 							id="password"
 							name="password"
               placeholder="Password"
@@ -58,7 +60,7 @@ const Login: React.FC = () => {
 						<a href="/">Forgot Password?</a>
 					</div>
 
-					<button type="submit">Log In</button>
+					<button data-testid="submit-button" type="submit">Log In</button>
 				</form>
 			</div>
 		</div>
