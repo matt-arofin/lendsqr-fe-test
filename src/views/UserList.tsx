@@ -3,10 +3,21 @@ import { tokens } from "../theme";
 import StatBox from "../components/StatBox";
 import { Box, useTheme } from "@mui/material";
 import UserTable from "../components/UserTable";
+import { useEffect } from "react";
 
-const UserList = () => {
+interface UserListProps {
+  setIsLogin?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UserList = ({ setIsLogin }: UserListProps) => {
 	const theme = useTheme();
 	const colours = tokens(theme.palette.mode);
+	
+	useEffect(() => {
+    if (setIsLogin) {
+      setIsLogin(false);
+    }
+  }, [setIsLogin]);
 
 	return (
 		<Box m="20px" bgcolor={"#fff"} textAlign="left">

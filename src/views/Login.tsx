@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 // import * as yup from "yup"; form validation pending
 import graphic from "../assets/pablo-graphic-login.png";
 
-const Login: React.FC = () => {
+interface LoginProps {
+  setIsLogin?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
+}
+
+const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
   const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+    if (setIsLogin) {
+      setIsLogin(true);
+    }
+  }, [setIsLogin]);
 
 	const handleEmailChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
 		setEmail(evt.target.value);
@@ -16,7 +25,6 @@ const Login: React.FC = () => {
 		setPassword(evt.target.value);
 	const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
 		evt.preventDefault();
-    setIsLogin(false); // allows rest of top bar to render
 		console.log(`email: ${email} password: ${password}`);
 		navigate("/userlist")
 	};

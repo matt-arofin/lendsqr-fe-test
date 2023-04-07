@@ -36,9 +36,19 @@ interface User {
 	guarantorRelationship: string;
 }
 
-const UserInfo = () => {
+interface UserInfoProps {
+  setIsLogin?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UserInfo = ({ setIsLogin }: UserInfoProps) => {
 	const { id } = useParams<{ id: string }>();
 	const [user, setUser] = useState<User | null>(null);
+	
+	useEffect(() => {
+    if (setIsLogin) {
+      setIsLogin(false);
+    }
+  }, [setIsLogin]);
 
 	useEffect(() => {
     if (id) {

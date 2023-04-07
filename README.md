@@ -1,5 +1,11 @@
 # Lendsqr UI Build
 
+## Demo Endpoints:
+Login: matthew-arofin0lendsqr-fe-test.heroku.com/
+UserList w/ filters: matthew-arofin0lendsqr-fe-test.heroku.com/userlist
+UserInfo: matthew-arofin0lendsqr-fe-test.heroku.com/users/:id
+
+
 ## Planning
 ### Components/Views:
 - Login Page
