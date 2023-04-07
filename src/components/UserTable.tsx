@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { DataGrid, GridColDef, GridToolbar, GridRowParams } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const root = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1";
 
 interface User {
-	id: string;
 	orgName: string;
 	userName: string;
 	email: string;
@@ -16,11 +14,6 @@ interface User {
 }
 
 const columns: GridColDef[] = [
-	{
-		field: "id",
-		headerName: "ID",
-		flex: 0.5,
-	},
 	{
 		field: "orgName",
 		headerName: "Organisation",
@@ -57,12 +50,6 @@ const columns: GridColDef[] = [
 
 const UserTable = () => {
 	const [users, setUsers] = useState<User[]>([]);
-	const navigate = useNavigate();
-
-	const handleRowClick = (params: GridRowParams, event: any) => {
-		const id = params.row.id;
-		navigate(`/user/${id}`);
-	};
 
 	useEffect(() => {
 		const fetchUsers = async () => {
@@ -79,7 +66,6 @@ const UserTable = () => {
 				rows={users}
 				columns={columns}
 				components={{ Toolbar: GridToolbar }}
-				onRowClick={handleRowClick}
 			/>
 		</div>
 	);
