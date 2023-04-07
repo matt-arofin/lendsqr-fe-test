@@ -2,8 +2,6 @@ import "../App.css";
 import { tokens } from "../theme";
 import StatBox from "../components/StatBox";
 import { Box, useTheme } from "@mui/material";
-import { DataGrid, GridToolbar, GridColDef } from "@mui/x-data-grid";
-import axios from "axios";
 import UserTable from "../components/UserTable";
 
 const UserList = () => {
@@ -11,8 +9,14 @@ const UserList = () => {
 	const colours = tokens(theme.palette.mode);
 
 	return (
-		<Box m="20px" bgcolor={"#fff"}>
+		<Box m="20px" bgcolor={"#fff"} textAlign="left">
 			<h3>USERS</h3>
+      <Box display="flex" justifyContent="space-between">
+        <StatBox title="USERS" figure="2,453" />
+        <StatBox title="ACTIVE USERS" figure="2,453" />
+        <StatBox title="USERS WITH LOANS" figure="12,453" />
+        <StatBox title="USERS WITH SAVINGS" figure="102,453" />
+      </Box>
 			<Box
 				m="40px"
 				height="75vh"
@@ -21,7 +25,7 @@ const UserList = () => {
 						border: "none",
 					},
 					"& .MuiDataGrid-cell": {
-						borderBottom: "1px",
+						borderBottom: "5px",
             borderColor: "black",
 					},
 					"& .name-column--cell": {
