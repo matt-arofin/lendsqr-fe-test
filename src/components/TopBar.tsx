@@ -11,14 +11,14 @@ import logo from "../assets/logo.png";
 import company from "../assets/lendsqr.png";
 import profile from "../assets/profile.png";
 import vector from "../assets/vector.png";
-import setIsLogin from "../views/Login";
+// import setIsLogin from "../views/Login";
 import isLogin from "../views/Login";
 
 const TopBar = () => {
 	const theme = useTheme();
 	const colours = tokens(theme.palette.mode);
 	const colourMode = useContext(ColourModeContext);
-  setIsLogin(false);
+  // setIsLogin(false);
 
 	return (
 		<Box className="top-bar" display="flex" justifyContent="space-between" p={2} bgcolor="#FFFFFF">
