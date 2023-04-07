@@ -8,9 +8,9 @@
 - User Details
 
 ### API Endpoints:
-- GET all users: https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users
+- GET all users:
 Returns a list of all users
-- GET user by ID: https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id
+- GET user by ID:
 Returns a specific user's details
 
 ### Objectives:
@@ -29,5 +29,5 @@ Returns a specific user's details
 - User authentication/authorisation NOT implemented in demo, submit button console logs username and password.
 - Public routing implemented for the following features:
 1. LOGIN ('/')
-2. DASHBOARD/USER LIST ('/dashboard')
+2. DASHBOARD/USER LIST ('/userlist')
 3. USER ('/user/:id')
