@@ -1,7 +1,7 @@
 import Login from "./views/Login";
 import TopBar from "./components/TopBar";
 import UserList from './views/UserList';
-// import UserInfo from './views/UserInfo';
+import UserInfo from './views/UserInfo';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { ColourModeContext, useMode } from "./theme";
@@ -22,7 +22,7 @@ function App() {
 							<Routes>
 								<Route path="/" element={<Login />} />
 								<Route path="/userlist" element={<UserList />} />
-								{/* <Route path="/user/:id" element={<UserInfo />} /> */}
+								<Route path="/user/:id" element={<UserInfo />} />
 							</Routes>
 						</Router>
 					</div>

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
-// import * as yup from "yup";
-// import logo from "../assets/logo.png";
-// import company from "../assets/lendsqr.png";
+// import * as yup from "yup"; form validation pending
 import graphic from "../assets/pablo-graphic-login.png";
-
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
+	const navigate = useNavigate();
 
 	const handleEmailChange = (evt: React.ChangeEvent<HTMLInputElement>) =>
 		setEmail(evt.target.value);
@@ -19,16 +18,12 @@ const Login: React.FC = () => {
 		evt.preventDefault();
     setIsLogin(false); // allows rest of top bar to render
 		console.log(`email: ${email} password: ${password}`);
+		navigate("/userlist")
 	};
 
 	return (
 		<div className="login">
 			<div className="image-container">
-				{/* <div className="company-logo">
-					<img src={logo} alt="logo" />
-					<img src={company} alt="Lendsqr" />
-				</div> */}
-
 				<div className="graphic">
 					<img src={graphic} alt="login-page-graphic" />
 				</div>
